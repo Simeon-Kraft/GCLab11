@@ -16,6 +16,6 @@ public class UsedCar extends Car {
 	
 	@Override
 	public String toString() {
-		return String.format("%-6s %9s %17d %12s %8f %14s %7f %-9s", getMake(), getModel(), getYear(), "$", getPrice(), "(Used)", mileage, "miles");
+		return String.format("%-6s %9s %17d %12s %.3f %14s %.3f %-9s", getMake(), getModel(), getYear(), "$", getPrice(), "(Used)", mileage, "miles");
 	}
 }

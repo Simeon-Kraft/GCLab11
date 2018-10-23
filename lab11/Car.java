@@ -50,6 +50,6 @@ public class Car {
 	
 	@Override
 	public String toString() {
-		return String.format("%-6s %9s %17d %12s %4f %14s", make, model, year, "$", price, "N/A");
+		return String.format("%-6s %9s %17d %12s %.3f %14s", make, model, year, "$", price, "N/A");
 	}
 }

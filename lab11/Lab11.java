@@ -52,6 +52,13 @@ public class Lab11 {
 	public static void lookUp(Scanner scnr) {
 		System.out.println("Choose a car inventory number: (enter 1-" + (inventory.size()) + ")");
 		int userNum = getInt(scnr);
+		
+		while (userNum < 1 || userNum > 6) {
+			System.out.println("No such car. Try again.");
+			userNum = getInt(scnr);
+		}
+		
+		
 		System.out.println("Here ya go\n========\n" + inventory.get(userNum - 1));
 	}
 	
@@ -59,6 +66,12 @@ public class Lab11 {
 		
 		System.out.println("Enter the lot number (1-6) of the car you'd like to trade for: ");
 		int num = getInt(scnr);
+		
+		while (num < 1 || num > 6) {
+			System.out.println("No such car. Try again.");
+			num = getInt(scnr);
+		}
+		
 		System.out.println("Enter the make, model, year, and price of the car you'd like to trade-in. \n");
 		inventory.set(num - 1, new UsedCar(scnr.nextLine(), scnr.nextLine(), getYear(scnr), getPrice(scnr), getMileage(scnr)));
 		
@@ -80,8 +93,8 @@ public class Lab11 {
 
 	public static void getList() {
 		System.out.println("Inventory by List\n=================");
-		System.out.printf("%-6s %14s %15s %19s %21s", "Make", "Model", "Year", "Price", "Mileage\n");
-		System.out.printf("%-6s %14s %16s %18s %21s", "=====", "=====", "=====", "=====", "=======\n");
+		System.out.printf("%-6s %14s %15s %19s %19s", "Make", "Model", "Year", "Price", "Mileage\n");
+		System.out.printf("%-6s %14s %16s %18s %19s", "=====", "=====", "=====", "=====", "=======\n");
 
 		for (int i = 0; i < inventory.size(); i++) {
 			System.out.println((i + 1) + ". " + inventory.get(i));
@@ -142,10 +155,14 @@ public class Lab11 {
 	public static void selectCar(Scanner scnr) {
 		System.out.println("Which car would you like to purchase? (select 1-6)\n");
 		int userSelect = getInt(scnr);
-
+		
+		while (userSelect < 1 || userSelect > 6) {
+			System.out.println("No such car. Try again.");
+			userSelect = getInt(scnr);
+		}
+		
 		System.out.println("You've selected: \n" + inventory.get(userSelect -1) + "\nReally? In THIS economy? Ok, then.");
 		System.out.println("That bad-boy will be taken off the rolls.");
-
 		inventory.remove(userSelect -1);
 
 	}
@@ -165,12 +182,12 @@ public class Lab11 {
 	}
 
 	public static void carInstant() {
-		inventory.add(new Car("Ford", "Foo", 1999, 29.990));
-		inventory.add(new Car("Honda", "Hoo", 1889, 66.0));
-		inventory.add(new Car("Toyota", "Too", 2001, 18.990));
-		inventory.add(new UsedCar("Nissan", "Noo", 2009, 17.970, 70.000));
-		inventory.add(new UsedCar("Subaru", "Soo", 2019, 26.000, 46.500));
-		inventory.add(new UsedCar("GM", "Goo", 2003, 21.000, 27.000));
+		inventory.add(new Car("Ford", "Foo", 1999, 29.998));
+		inventory.add(new Car("Honda", "Hoo", 1889, 66.077));
+		inventory.add(new Car("Toyota", "Too", 2001, 18.999));
+		inventory.add(new UsedCar("Nissan", "Noo", 2009, 17.979, 70.451));
+		inventory.add(new UsedCar("Subaru", "Soo", 2019, 26.555, 46.578));
+		inventory.add(new UsedCar("GM", "Goo", 2003, 21.998, 27.231));
 	}
 
 }
