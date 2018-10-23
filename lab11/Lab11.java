@@ -53,7 +53,7 @@ public class Lab11 {
 		System.out.println("Choose a car inventory number: (enter 1-" + (inventory.size()) + ")");
 		int userNum = getInt(scnr);
 		
-		while (userNum < 1 || userNum > 6) {
+		while (userNum < 1 || userNum > inventory.size()) {
 			System.out.println("No such car. Try again.");
 			userNum = getInt(scnr);
 		}
@@ -64,10 +64,10 @@ public class Lab11 {
 	
 	public static void replaceCar(Scanner scnr) {
 		
-		System.out.println("Enter the lot number (1-6) of the car you'd like to trade for: ");
+		System.out.println("Enter the lot number (1-" + inventory.size() +") of the car you'd like to trade for: ");
 		int num = getInt(scnr);
 		
-		while (num < 1 || num > 6) {
+		while (num < 1 || num > inventory.size()) {
 			System.out.println("No such car. Try again.");
 			num = getInt(scnr);
 		}
@@ -83,8 +83,14 @@ public class Lab11 {
 	public static void removeCar(Scanner scnr) {
 
 		System.out.println(
-				"You want us to just trash one of our cars? In THIS economy? Ok. Say the word and we'll do it. (Select 1-6)");
+				"You want us to just trash one of our cars? In THIS economy? Ok. Say the word and we'll do it. (Select 1-" + inventory.size() + ")");
 		int userNum = getInt(scnr);
+		
+		while (userNum < 1 || userNum > inventory.size()) {
+			System.out.println("No such car. Try again.");
+			userNum = getInt(scnr);
+		}
+		
 		System.out.println("You want to remove this bad-boy from our rolls?");
 		System.out.println(inventory.get(userNum - 1));
 		System.out.println("Consider it done.");
@@ -153,10 +159,10 @@ public class Lab11 {
 	}
 
 	public static void selectCar(Scanner scnr) {
-		System.out.println("Which car would you like to purchase? (select 1-6)\n");
+		System.out.println("Which car would you like to purchase? (select 1-" + inventory.size() + ")\n");
 		int userSelect = getInt(scnr);
 		
-		while (userSelect < 1 || userSelect > 6) {
+		while (userSelect < 1 || userSelect > inventory.size()) {
 			System.out.println("No such car. Try again.");
 			userSelect = getInt(scnr);
 		}
